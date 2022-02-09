@@ -68,4 +68,21 @@ public class RealEstate extends Advertisement {
         realEstates.add(new RealEstate(RealEstateType.RENT, "Nizip 1+1 Kiralık", 1000, "30 Days", "28.09.2022", true, false,  "Güney Doğu Anadolu", "Gaziantep", "1+1", 60, 3));
         return realEstates;
     }
+
+    public static void showRealEstateList() {
+        for (RealEstate r : prepareRealEstate()) {
+            System.out.println("Real Estate Type: " + r.getRealEstateType()
+                    + "\nReal Estate Title: " + r.getTitle()
+                    + "\nReal Estate Price: " + r.getPrice()
+                    + "\nReal Estate Duration Time: " + r.getDurationTime()
+                    + "\nReal Estate Listing Date: " + r.getListingDate()
+                    + "\nReal Estate Is Active ?: " + r.isActive()
+                    + "\nReal Estate Is Promotion?: " + r.isPromotion()
+                    + "\nReal Estate Province: " + r.getProvince()
+                    + "\nReal Estate Town: " + r.getTown()
+                    + "\nReal Estate Rooms: " + r.getRooms()
+                    + "\nReal Estate Size: " + r.getSize()
+                    + "\nReal Estate Floor: " + r.getFloor() + "\n");
+        }
+    }
 }

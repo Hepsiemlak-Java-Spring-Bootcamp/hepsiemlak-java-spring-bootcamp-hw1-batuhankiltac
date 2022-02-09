@@ -88,6 +88,18 @@ public class Advertisement {
         return advertisements;
     }
 
+    public static void showAdvertisementList() {
+        for (Advertisement a : prepareAdvertisement()) {
+            System.out.println("Advertisement Type: " + a.getRealEstateType()
+                    +"\nAdvertisement Title: " + a.getTitle()
+                    +"\nAdvertisement Price: " + a.getPrice()
+                    +"\nAdvertisement Duration Time: " + a.getDurationTime()
+                    +"\nAdvertisement Listing Date: " + a.getListingDate()
+                    +"\nAdvertisement Is Active ?: " + a.isActive()
+                    +"\nAdvertisement Is Promotion?: " + a.isPromotion() + "\n");
+        }
+    }
+
     public static ArrayList<Advertisement> prepareFavoriteAdvertisement() {
         ArrayList<Advertisement> favorites = new ArrayList<>();
         favorites.add(new Advertisement(RealEstateType.RENT, "Ortaköy 1+1 Kiralık", 3000, "30 Days", "02.02.2022", true, false));
@@ -97,16 +109,17 @@ public class Advertisement {
         return favorites;
     }
 
-    public static ArrayList<RealEstate> prepareFilter() {
-        ArrayList<RealEstate> realEstates = new ArrayList<>();
-        realEstates.add(new RealEstate(RealEstateType.SALE, "Beşiktaş 3+1 Satılık", 3000000, "30 Days", "11.12.2021", true, false, "Marmara", "İstanbul", "3+1", 135, 5));
-        realEstates.add(new RealEstate(RealEstateType.RENT, "Şişli 2+1 Kiralık", 4000, "30 Days", "12.01.2022", true, false,  "Marmara", "İstanbul", "2+1", 85, 3));
-        realEstates.add(new RealEstate(RealEstateType.SALE, "Levent 1+1 Satılık", 1400000, "30 Days", "17.01.2022", true, true,  "Marmara", "İstanbul", "1+1", 55, -2));
-        realEstates.add(new RealEstate(RealEstateType.RENT, "Ortaköy 1+1 Kiralık", 3000, "30 Days", "02.02.2022", true, false,  "Marmara", "İstanbul", "1+1", 60, 0));
-        realEstates.add(new RealEstate(RealEstateType.SALE, "Yeni Mahalle 3+1 Satılık", 2000000, "30 Days", "15.01.2022", true, false, "İç Anadolu", "Ankara", "3+1", 115, 8));
-        realEstates.add(new RealEstate(RealEstateType.RENT, "Urla 2+1 Kiralık", 2500, "30 Days", "02.06.2022", true, false,  "Ege", "İzmir", "2+1", 90, 1));
-        realEstates.add(new RealEstate(RealEstateType.SALE, "Fethiye 1+1 Satılık", 350000, "30 Days", "23.04.2022", true, true,  "Ege", "Muğla", "1+1", 70, 2));
-        realEstates.add(new RealEstate(RealEstateType.RENT, "Nizip 1+1 Kiralık", 1000, "30 Days", "28.09.2022", true, false,  "Güney Doğu Anadolu", "Gaziantep", "1+1", 60, 3));
-        return realEstates;
+    public static void showFavoriteAdvertisement() {
+        User user = new User(UserType.INDIVIDUAL, "Ayşe", "Sarı", "ayse.sari@gmail.com", "02122222222");
+        for (Advertisement fav : prepareFavoriteAdvertisement()) {
+            if (user.getEmail().equals("ayse.sari@gmail.com")) {
+                System.out.println("Favorite Type: " + fav.getRealEstateType()
+                        +"\nFavorite Title: " + fav.getTitle()
+                        +"\nFavorite Price: " + fav.getPrice()
+                        +"\nFavorite Listing Date: " + fav.getListingDate() + "\n");
+            } else {
+                System.out.println("Wrong email address.");
+            }
+        }
     }
 }

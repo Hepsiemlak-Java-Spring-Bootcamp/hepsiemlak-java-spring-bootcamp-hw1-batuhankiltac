@@ -85,4 +85,16 @@ public class Message {
         messages.add(new Message("Message 6", "Kiralık olur mu ?", "08.03.2022", "09.03.2022", true, "Lale Atay", "Yılmaz Güney"));
         return messages;
     }
+
+    public static void showMessageList() {
+        for (Message m : prepareMessageBox()) {
+            System.out.println("Message Title: " + m.getMessageTitle()
+                    +"\nMessage Description: " + m.getDescription()
+                    +"\nMessage Sent Date: " +  m.getSentDate()
+                    +"\nMessage Read Date: " +  m.getReadDate()
+                    +"\nMessage Is Seen ?: " +  m.isSeen()
+                    +"\nMessage Posting User: " +  m.getPostingUser()
+                    +"\nMessage Domain User: " +  m.getDomainUser() + "\n");
+        }
+    }
 }
